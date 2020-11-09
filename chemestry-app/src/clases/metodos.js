@@ -205,59 +205,59 @@ function nic(T_general){
     {
       x: T_general[0][0],//***Esto es Y y no cambia */
       y: T_general[0][3],
-      x2: T_general[0][1],
+      x2: parseFloat(T_general[0][1]),
     },
     {
       x: T_general[1][0],
       y: T_general[1][3],
-      x2: T_general[1][1],
+      x2: parseFloat(T_general[1][1]),
     },
     {
       x: T_general[2][0],
       y: T_general[2][3],
-      x2: T_general[2][1],
+      x2: parseFloat(T_general[2][1]),
     },
     {
       x: T_general[3][0],
       y: T_general[3][3],
-      x2: T_general[3][1],
+      x2: parseFloat(T_general[3][1]),
     },
     {
       x: T_general[4][0],
       y: T_general[4][3],
-      x2: T_general[4][1],
+      x2: parseFloat(T_general[4][1]),
     },
     {
       x: T_general[5][0],
       y: T_general[5][3],
-      x2: T_general[5][1],
+      x2: parseFloat(T_general[5][1]),
     },
     {
       x: T_general[7][0],
       y: T_general[7][3],
-      x2: T_general[7][1],
+      x2: parseFloat(T_general[7][1]),
     },
     {
       x: T_general[8][0],
       y: T_general[8][3],
-      x2: T_general[8][1],
+      x2: parseFloat(T_general[8][1]),
     },
     {
       x: T_general[9][0],
       y: T_general[9][3],
-      x2: T_general[9][1],
+      x2: parseFloat(T_general[9][1]),
 
     },
     {
       x: T_general[10][0],
       y: T_general[10][3],
-      x2: T_general[10][1],
+      x2: parseFloat(T_general[10][1]),
 
     },
     {
       x: T_general[11][0],
       y: T_general[11][3],
-      x2: T_general[11][1],
+      x2: parseFloat(T_general[11][1]),
     },
     {
       x: 10000,
