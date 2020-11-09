@@ -17,7 +17,7 @@ var xVal = dps.length + 1;
 var yVal2=0;
 var dps2=[];
 var yVal = 15;
-var updateInterval = 1000;
+var updateInterval = 150;
 var i=0;
 var contadornic=0;
 var cont2=0;
@@ -48,19 +48,19 @@ class App extends Component {
     if(yVal!=contadornic){
       
       dps.push({x: xVal,y: yVal});
-      //dps2.push({x: yVal2,y: yVal});
+      dps2.push({x: yVal2,y: yVal});
       
       i++;
       
       if (dps.length >  12) {
         dps.shift(); 
-        //dps2.shift();
+        dps2.shift();
       }
     }
       
     if(cont2==12){
       dps.shift();
-     // dps2.shift();
+     dps2.shift();
     }
 
     this.chart.render();
@@ -70,6 +70,7 @@ class App extends Component {
     show: false,
     i:0,
     cont2:0,
+    nameG:"Temperatura/Presión",
   };
 
   hide = () => {
@@ -92,10 +93,12 @@ class App extends Component {
     if (event.target.value === "Temperatura") {
       this.setState({
         name: "Presión",
+        nameG:"Temperatura",
       });
     } else {
       this.setState({
         name: "Temperatura",
+        nameG:"Presion",
       });
     }
   };
@@ -121,7 +124,7 @@ class App extends Component {
         title : "Fracciones Molares"
        },
        axisY:{
-        title : this.state.name///!!!Cambiar
+        title : this.state.nameG//!!!Cambiar
        },
 			data: [{
         type: "line",
