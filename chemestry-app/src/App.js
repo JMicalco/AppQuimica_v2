@@ -141,13 +141,23 @@ class App extends Component {
     const options = {
 			title :{
 				text: "Gráfica"
-			},
+      },
+      axisX:{
+        title : "Fracciones Molares"
+       },
+       axisY:{
+        title : "Temperatura/Presion"///!!!Cambiar
+       },
 			data: [{
-				type: "line",
+        type: "line",
+        showInLegend: true, 
+        legendText: "Gaseosa",
 				dataPoints : dps
 			},{
 				type: "line",
-				dataPoints : dps2
+        dataPoints : dps2,
+        showInLegend: true, 
+        legendText: "Liquida",
 			}]
 		}
     return (
