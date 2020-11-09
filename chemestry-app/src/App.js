@@ -146,7 +146,7 @@ class App extends Component {
         title : "Fracciones Molares"
        },
        axisY:{
-        title : "Temperatura/Presion"///!!!Cambiar
+        title : this.state.name///!!!Cambiar
        },
 			data: [{
         type: "line",
@@ -156,7 +156,7 @@ class App extends Component {
 			},{
 				type: "line",
         dataPoints : dps2,
-        showInLegend: true, 
+        showInLegend: true,
         legendText: "Liquida",
 			}]
 		}
