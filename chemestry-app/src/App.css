@@ -1,0 +1,193 @@
+/* En root se definen los colores principales y guardan en variables */
+/* https://colorhunt.co/palette/12457 */
+
+:root {
+  --main-color: #a6acec;
+  --dark-main-color: #a56cc1;
+  --green-color: #ace7ef;
+  --light-green-color: #cefff1;
+}
+
+.App-header {
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.btn {
+  background-color: #f3f3f3;
+  margin: 1rem 2rem;
+  font-size: 2rem;
+  box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.16);
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+}
+
+.btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.wrapper > div {
+  text-align: center;
+  border-radius: 2.5rem;
+  background-color: #e7e7e7;
+  padding: 2em;
+  color: black;
+  box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.16);
+}
+
+.wrapper hr {
+  padding-bottom: 1rem;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(150px, auto);
+}
+.one {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
+}
+
+.line-chart {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  grid-column: 2 / 4;
+  grid-row: 1 / 4;
+  padding-left: 0 !important;
+  margin-bottom: 5rem;
+}
+
+.six {
+  grid-column: 4;
+  grid-row: 3;
+  margin-top: 4rem;
+}
+
+.three {
+  margin-bottom: 4rem;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  text-align: justify;
+}
+
+label {
+  padding-left: 2rem;
+}
+
+.wrap-fracciones button {
+  background-color: rgb(206, 206, 206);
+  color: black;
+  font-size: 1.6rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  transition: all 0.3s linear;
+}
+
+.wrap-fracciones button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.wrap-fracciones button:focus {
+  background-color: var(--main-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.one .container input[type="text"] {
+  margin-top: 2rem;
+}
+
+.dark {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  transform: scale(1.2);
+}
+
+.cnic {
+  display: flex;
+  margin: 1rem 1rem;
+  justify-content: center;
+}
+
+.cnic > div {
+  padding: 0 3rem;
+  margin-top: 2rem;
+}
+
+.seven {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 4rem;
+}
+.nine {
+  grid-column: 2;
+  grid-row: 3;
+  margin-right: -20rem;
+  margin-left: 15rem;
+  margin-top: 8rem;
+}
+
+.h5-align {
+  text-align: left;
+}
+.hey {
+  margin-top: 3rem;
+}
+
+.MuiFormControlLabel-label {
+  font-size: 1.6rem !important;
+}
+
+.MuiSelect-selectMenu {
+  font-size: 1.6rem !important;
+}
+
+.MuiListItem-root {
+  font-size: 1.6rem !important;
+}
+
+.Mui-selected {
+  font-size: 1.6rem !important;
+}
+
+@media (max-width: 980px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .cnic {
+    margin: 5rem 0;
+  }
+  .cnic > div {
+    padding: 2rem 0;
+  }
+  .nine {
+    margin: auto;
+    width: 100%;
+  }
+  .seven {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 530px) {
+  .cnic {
+    flex-direction: column;
+  }
+}
