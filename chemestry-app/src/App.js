@@ -172,7 +172,7 @@ class App extends Component {
             onClickHide={() => this.hide()}
           />
           {this.state.show ? <Four /> : null}
-          <Six name={this.state.name} />
+          <Six nameG={this.state.nameG} />
           <Nine />
         </div>
       </div>

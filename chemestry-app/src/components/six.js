@@ -12,7 +12,7 @@ const six = (props) => {
           <ModalFL name="Fase Líquida" />
         </div>
         <div>
-          <ModalFG name="Fase gaseosa" />
+          <ModalFG name="Fase gaseosa" nameG={props.nameG} />
         </div>
       </div>
     </div>
