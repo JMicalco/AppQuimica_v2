@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Dark from "./components/darkButton";
 import Header from "./components/header";
 import One from "./components/one";
-// import Middle from "./components/middle";
-import Component1 from "./components/dropDown1";
+import DropDown1 from "./components/dropDown1";
 import Three from "./components/three";
 import Four from "./components/four";
 import Six from "./components/six";
@@ -11,7 +10,7 @@ import Nine from "./components/nine";
 import obj from "./clases/metodos";
 import "./App.css";
 import CanvasJSReact from "./components/canvasjs.react";
-var CanvasJS = CanvasJSReact.CanvasJS;
+
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dps = [];
 var xVal = dps.length + 1;
@@ -41,28 +40,24 @@ class App extends Component {
     yVal = arreglo[i % 12].x;
     xVal = arreglo[i % 12].y;
     yVal2 = arreglo[i % 12].x2;
-
+    
     cont2++;
-
+    
     if (yVal != contadornic) {
       dps.push({ x: xVal, y: yVal });
       dps2.push({ x: yVal2, y: yVal });
 
       i++;
 
-      if (dps.length > 12) {
+      if (dps.length > 11) {
         dps.shift();
         dps2.shift();
       }
     }
 
-    if (cont2 == 12) {
-      dps.shift();
-      dps2.shift();
-    }
-
     this.chart.render();
   }
+
   state = {
     name: "Temperatura/Presión",
     show: false,
@@ -101,10 +96,16 @@ class App extends Component {
     }
   };
 
-  onChange = (event) => {
+  onChange = () => {
     i = 0;
     cont2 = 0;
   };
+
+  onChange2 = () => {
+    i = 0;
+    console.log("on change ");
+  };
+
 
   render() {
     i = 0;
@@ -122,7 +123,7 @@ class App extends Component {
         title: "Fracciones Molares",
       },
       axisY: {
-        title: this.state.nameG, //!!!Cambiar
+        title: this.state.nameG, 
       },
       data: [
         {
@@ -145,14 +146,6 @@ class App extends Component {
           <Dark />
         </div>
         <Header onClick={this.barChangeHandler} />
-        {/* <div>
-          <CanvasJSChart
-            options={options}
-            onRef={(ref) => (this.chart = ref)}
-            zoomEnabled={true}
-          /> */}
-        {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
-        {/* </div> */}
         <div className="wrapper">
           <One name={this.state.name} onChange={this.onChange} />
           <div className="line-chart">
@@ -163,7 +156,7 @@ class App extends Component {
             />
             <div className="cnic">
               <div className="seven">
-                <Component1 />
+                <DropDown1 onChange={this.onChange2} />
               </div>
             </div>
           </div>
@@ -171,9 +164,9 @@ class App extends Component {
             onClickShow={() => this.show()}
             onClickHide={() => this.hide()}
           />
-          {this.state.show ? <Four /> : null}
-          <Six nameG={this.state.nameG} />
-          <Nine />
+          {this.state.show ? <Four onClick={this.onChange} /> : null}
+          <Six nameG={this.state.nameG} onClick={this.onChange}/>
+          
         </div>
       </div>
     );

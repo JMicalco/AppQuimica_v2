@@ -4,7 +4,7 @@ import obj from "../clases/metodos";
 import PropTypes from "prop-types";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
-import app from "../App"
+
 
 var variable, constante;
 var valor = 21;
@@ -35,7 +35,6 @@ const useStyles = makeStyles({
 function valuetext(value) {
   if (value !== valor) {
     console.log(obj.orquestador(0, "", "", variable, constante, value,true));
-   // console.log(obj.orquestador("*","","","","",""));
     valor = value;
   }
   return `${value}°C`;

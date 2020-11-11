@@ -3,7 +3,7 @@ import OBJETOConstantesAntoine from "../clases/constantesAntoine";
 const OBJETO = sitemaIdeal();
 var nombreSis1, nombreSis2, nombreVar, nombreConst, nombreGrado, respuesta,nombreCambio;
 
-var t, p, peb1, peb2, xa, xb, psup, tSup;
+var t, p, peb1, peb2, xa, xb, psup, tSup,tipoS;
 
 function orquestador(
   tipo,
@@ -54,12 +54,14 @@ function orquestador(
       nombreGrado = grado;
     }
   }
-nombreCambio=cambioo;
+  nombreCambio=cambioo;
   if (tipo === 0) {
+    tipoS=0;
     return sitemaIdeal();
   } else if(tipo === "*"){
     return getnic();
   }else{
+    tipoS=1;
     return sistemaReal();
   }
 }
@@ -73,8 +75,9 @@ function sitemaIdeal() {
     variable: nombreVar,
     gradoo: nombreGrado,
     bandera:0,
+    tipos:tipoS,
     n: 11,
-    c_antonie1: OBJETOConstantesAntoine[nombreSis1], //!!!!CAMBIAR VALORES
+    c_antonie1: OBJETOConstantesAntoine[nombreSis1], 
     c_antonie2: OBJETOConstantesAntoine[nombreSis2],
     x1: x1(11),
     x2: x2(11),
@@ -84,8 +87,7 @@ function sitemaIdeal() {
     nic:nic,
     getnic:getnic,
     cambio:nombreCambio,
-    getcambio:getcambio,
-    setCambio:setCambio,
+    getTipo:getTipo,
   };
 
   var T_general = t_general(OBJETO.x1, OBJETO.x2, OBJETO.n);
@@ -139,7 +141,7 @@ function sitemaIdeal() {
       console.log(T_general[j][5]);
     }
     console.log(JSON.stringify(T_general));
-  } else if (nombreConst === "Temperatura") {
+  } else if (nombreConst === "Temperatura") { //& SISTEMA IDEAL TEMPERATURA CONSTANTE
     p = nombreGrado;
     T_general[OBJETO.n][0] =
       OBJETO.c_antonie1[1] / (OBJETO.c_antonie1[0] - Math.log10(p)) -
@@ -160,7 +162,6 @@ function sitemaIdeal() {
           OBJETO.c_antonie1[0] -
             OBJETO.c_antonie1[1] / (OBJETO.c_antonie1[2] + tSup)
         ); //Presiones de saturación especie 1
-        //console.log(Math.pow(10, (OBJETO.c_antoine1[0]-OBJETO.c_antoine1[1]/(OBJETO.c_antoine1[2]+tSup))));
         T_general[i][5] = Math.pow(
           10,
           OBJETO.c_antonie2[0] -
@@ -180,8 +181,10 @@ function sitemaIdeal() {
     console.log(JSON.stringify(T_general));
   }
 
-  
-
+  T_general[0][3]=0;
+  T_general[0][1]=0;
+  T_general[11][3]=1;
+  T_general[11][1]=1;
   OBJETO.respuesta=nic(T_general);
 
   return OBJETO;
@@ -191,13 +194,8 @@ function getnic() {
   return respuesta;
 }
 
-function getcambio(){
-  return nombreCambio;
-}
-
-function setCambio(){
-  nombreCambio=false;
-  return false;
+function getTipo() {
+  return tipoS;
 }
 
 function nic(T_general){

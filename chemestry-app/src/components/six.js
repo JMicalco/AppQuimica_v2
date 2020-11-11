@@ -2,6 +2,7 @@ import React from "react";
 import ModalFL from "../components/modalFL";
 import ModalFG from "../components/modalFG";
 
+
 const six = (props) => {
   return (
     <div className="six">
@@ -9,7 +10,7 @@ const six = (props) => {
       <hr />
       <div className="wrap-fracciones">
         <div>
-          <ModalFL name="Fase Líquida" />
+          <ModalFL name="Fase Líquida" nameG={props.nameG}/>
         </div>
         <div>
           <ModalFG name="Fase gaseosa" nameG={props.nameG} />

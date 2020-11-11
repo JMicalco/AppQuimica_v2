@@ -4,7 +4,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import margules from "../clases/margules";
 import obj from "../clases/metodos";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +26,7 @@ export default function SimpleSelect() {
     var x = event.target.value;
     switch (x) {
       case 1:
-        console.log(obj.orquestador(0,"acetona","cloroformo","","","",true)); //! ESTO LO DEJAMOS ASI O LO MODIFICAMOS?????
+        console.log(obj.orquestador(0,"acetona","cloroformo","","","",true)); 
         break;
       case 2:
         console.log(obj.orquestador(0,"acetona","metanol","","","",true));
@@ -84,6 +83,7 @@ export default function SimpleSelect() {
         console.log(obj.orquestador(0,"agua","acidoFormico","","","",true));
         break;
       default:
+        console.log(obj.orquestador(0,"","","","","",true));
         break;
     }
   };

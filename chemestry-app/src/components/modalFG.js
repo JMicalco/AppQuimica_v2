@@ -10,8 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import obj from "../clases/metodos";
 
-var arreglo = obj.orquestador("*","","","","","",true);
-
+obj.orquestador(0,"","","","","",true);
+var arreglo=obj.orquestador("*","","","","","",true);
 
 function createData(name, fracciones) {
   return { name, fracciones};
@@ -62,11 +62,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleModal(props) {
   const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+    arreglo = obj.getnic();
     setOpen(true);
   };
 
@@ -79,7 +79,7 @@ export default function SimpleModal(props) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-  <TableCell>{props.nameG}</TableCell>
+            <TableCell>{props.nameG}</TableCell>
             <TableCell align="left">Fracciones</TableCell>
           </TableRow>
         </TableHead>
