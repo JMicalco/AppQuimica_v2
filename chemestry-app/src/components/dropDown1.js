@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect() {
+export default function SimpleSelect(props) {
   const classes = useStyles();
   const [componente, setComponent] = React.useState("0");
 
@@ -97,6 +97,7 @@ export default function SimpleSelect() {
           id="menu"
           value={componente}
           onChange={handleChange}
+          onClick={props.onChange}
           label="Sistemas"
           inputProps={{
             classes: {

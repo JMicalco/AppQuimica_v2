@@ -101,12 +101,6 @@ class App extends Component {
     cont2 = 0;
   };
 
-  onChange2 = () => {
-    i = 0;
-    console.log("on change ");
-  };
-
-
   render() {
     i = 0;
     cont2 = 0;
@@ -156,7 +150,7 @@ class App extends Component {
             />
             <div className="cnic">
               <div className="seven">
-                <DropDown1 onChange={this.onChange2} />
+                <DropDown1 onChange={this.onChange} />
               </div>
             </div>
           </div>
