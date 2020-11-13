@@ -1,6 +1,6 @@
 import React from "react";
-import ModalFL from "../components/modalFL";
-import ModalFG from "../components/modalFG";
+import ModalFL from "./modalFL";
+import ModalFG from "./modalFG";
 
 
 const six = (props) => {

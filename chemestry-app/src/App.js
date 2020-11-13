@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Dark from "./components/darkButton";
 import Header from "./components/header";
-import One from "./components/one";
+import Slider from "./components/ComponentSliderText";
 import DropDown1 from "./components/dropDown1";
-import Three from "./components/three";
-import Four from "./components/four";
-import Six from "./components/six";
-import Nine from "./components/nine";
+import Solution from "./components/ComponentSolution";
+import Methods from "./components/ComponentMLW";
+import Six from "./components/ComponentMolarFractions";
+import Azeotrope from "./components/ComponentAzeotrope";
 import obj from "./clases/metodos";
 import "./App.css";
 import CanvasJSReact from "./components/canvasjs.react";
@@ -137,11 +137,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="dark">
-          <Dark />
         </div>
         <Header onClick={this.barChangeHandler} />
         <div className="wrapper">
-          <One name={this.state.name} onChange={this.onChange} />
+          <Slider name={this.state.name} onChange={this.onChange} />
           <div className="line-chart">
             <CanvasJSChart
               options={options}
@@ -154,11 +153,11 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <Three
+          <Solution
             onClickShow={() => this.show()}
             onClickHide={() => this.hide()}
           />
-          {this.state.show ? <Four onClick={this.onChange} /> : null}
+          {this.state.show ? <Methods onClick={this.onChange} /> : null}
           <Six nameG={this.state.nameG} onClick={this.onChange}/>
           
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import Chart from "../components/chart";
-import Chartjs from "../components/canvasjsChart";
-import Component1 from "../components/dropDown1";
+import Chart from "./chart";
+import Chartjs from "./canvasjsChart";
+import Component1 from "./dropDown1";
 import CanvasJSReact from './canvasjs.react';
 
 

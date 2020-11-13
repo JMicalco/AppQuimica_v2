@@ -1,6 +1,6 @@
 import React from "react";
-import Slider from "../components/slider";
-import TextField from "../components/textField"
+import Slider from "./slider";
+import TextField from "./textField"
 
 const one = (props) => {
   return (
