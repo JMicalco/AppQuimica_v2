@@ -2,7 +2,13 @@ import React from "react";
 import obj from "../clases/metodos";
 
 const handleChange = (event) => {     //!checar esto falta que exista cambios
-  console.log(obj.orquestador(1,"","","","","",true));
+  if(event.target.value === "Margules"){
+    console.log(obj.orquestador(1,"","","","","",1));
+  } else if(event.target.value === "Wilson"){
+    console.log(obj.orquestador(1,"","","","","",2));
+  } else if(event.target.value === "Margules"){
+
+  }
 }
 
 const four = (props) => {

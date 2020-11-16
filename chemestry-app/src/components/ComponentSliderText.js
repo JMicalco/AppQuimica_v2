@@ -10,7 +10,6 @@ const one = (props) => {
         <div className="hey">
           <Slider name={props.name} onChange={props.onChange}/>
         </div>
-        <TextField name={props.name}/>
       </div>
     </div>
   );
