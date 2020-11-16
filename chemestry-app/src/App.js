@@ -40,9 +40,9 @@ class App extends Component {
     yVal = arreglo[i % 12].x;
     xVal = arreglo[i % 12].y;
     yVal2 = arreglo[i % 12].x2;
-    
+
     cont2++;
-    
+
     if (yVal != contadornic) {
       dps.push({ x: xVal, y: yVal });
       dps2.push({ x: yVal2, y: yVal });
@@ -117,7 +117,7 @@ class App extends Component {
         title: "Fracciones Molares",
       },
       axisY: {
-        title: this.state.nameG, 
+        title: this.state.nameG,
       },
       data: [
         {
@@ -136,8 +136,7 @@ class App extends Component {
     };
     return (
       <div className="App">
-        <div className="dark">
-        </div>
+        <div className="dark"></div>
         <Header onClick={this.barChangeHandler} />
         <div className="wrapper">
           <Slider name={this.state.name} onChange={this.onChange} />
@@ -158,9 +157,9 @@ class App extends Component {
             onClickHide={() => this.hide()}
           />
           {this.state.show ? <Methods onClick={this.onChange} /> : null}
-          <Six nameG={this.state.nameG} onClick={this.onChange}/>
-          
+          <Six nameG={this.state.nameG} onClick={this.onChange} />
         </div>
+        {/* Footer */}
       </div>
     );
   }
