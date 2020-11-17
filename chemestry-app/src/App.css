@@ -192,3 +192,41 @@ label {
   }
 }
 
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  justify-content: space-between;
+}
+
+.footer > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon-f {
+  margin-right: 5rem;
+}
+
+.footer p {
+  padding-right: 10rem;
+  font-size: 1.6rem;
+  color: #cccbcb;
+  font-weight: bold;
+  letter-spacing: 0.4rem;
+}
+
+.footer p:first-of-type {
+  padding-left: 5rem;
+}
+
+@media (max-width: 750px) {
+  .footer {
+    justify-content: center;
+    text-align: center;
+  }
+  .footer p {
+    padding: 1rem;
+  }
+}

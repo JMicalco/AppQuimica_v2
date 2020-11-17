@@ -10,6 +10,7 @@ import Azeotrope from "./components/ComponentAzeotrope";
 import obj from "./clases/metodos";
 import "./App.css";
 import CanvasJSReact from "./components/canvasjs.react";
+import Footer from "./components/footer";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dps = [];
@@ -159,7 +160,7 @@ class App extends Component {
           {this.state.show ? <Methods onClick={this.onChange} /> : null}
           <Six nameG={this.state.nameG} onClick={this.onChange} />
         </div>
-        {/* Footer */}
+        <Footer />
       </div>
     );
   }
