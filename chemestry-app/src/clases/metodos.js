@@ -123,6 +123,8 @@ function sistemaReal(nombreMetodo) {
     aplha21: OBJETOAlphaMargules[nombreSis1 + nombreSis2],
     c_antonie2: OBJETOConstantesAntoine[nombreSis2],
     wilson: OBJETOAlphaWilson[nombreSis1 + nombreSis2],
+    alpha12V:OBJETOAlphaVanLaar[nombreSis1+nombreSis2],
+    alpha21V:OBJETOAlphaVanLaar[nombreSis1+nombreSis2],
     // vanLaar: OBJETOAlphaVanLaar[nombreSis1 + nombreSis2],
     x1: x1(11),
     x2: x2(11),
@@ -245,6 +247,36 @@ function sistemaReal(nombreMetodo) {
           OBJETO.c_antonie2[2];
       }
       OBJETO.respuesta = nic(T_general);
+    } else if(met===3){
+      for (let j = 0; j <= OBJETO.n; j++) {
+        gama1=Math.exp(OBJETO.alpha12V[0]*Math.pow(((OBJETO.alpha21V[1]*T_general[j][4])/(OBJETO.alpha12V[0]*T_general[j][1]+OBJETO.alpha21V[1]*T_general[j][4])),2));
+        gama2=Math.exp(OBJETO.alpha21V[1]*Math.pow(((OBJETO.alpha12V[0]*T_general[j][1])/(OBJETO.alpha12V[0]*T_general[j][1]+OBJETO.alpha21V[1]*T_general[j][4])),2)); 
+        xa = peb1 * 0.2;
+        xb = peb2 * 1.8;
+        psup = (xa + xb) / 2;
+        T_general[j][7] = 0;
+        while (Math.abs(T_general[j][7] - 1) > 0.001) {
+          psup = (xa + xb) / 2;
+          T_general[j][3] = (gama1 * T_general[j][1] * peb1) / psup; //*Calculo de y2
+          T_general[j][6] = (gama2 * T_general[j][4] * peb2) / psup; //*Calculo de y2
+          T_general[j][7] = T_general[j][3] + T_general[j][6];
+          if (T_general[j][7] > 1) {
+            xa = psup;
+          } else {
+            xb = psup;
+          }
+        }
+        T_general[j][0] = psup;
+        T_general[j][2] =
+          OBJETO.c_antonie1[1] /
+            (OBJETO.c_antonie1[0] - Math.log(T_general[j][0])) -
+          OBJETO.c_antonie1[2];
+        T_general[j][5] =
+          OBJETO.c_antonie2[1] /
+            (OBJETO.c_antonie2[0] - Math.log(T_general[j][0])) -
+          OBJETO.c_antonie2[2];        
+      }
+      OBJETO.respuesta = nic(T_general);
     }
   } else if (nombreConst === "Temperatura") {
     p = nombreGrado;
@@ -365,6 +397,39 @@ function sistemaReal(nombreMetodo) {
         T_general[j][0] = tSup;
       }
       OBJETO.respuesta = nic(T_general);
+    } else if(met===3){
+      for (let i = 0; i <= OBJETO.n; i++) {
+        //^ PARA QUE LA TEMPERATURA SE AJUSTE
+        gama1=Math.exp(OBJETO.alpha12V[0]*Math.pow(((OBJETO.alpha21V[1]*T_general[i][4])/(OBJETO.alpha12V[0]*T_general[i][1]+OBJETO.alpha21V[1]*T_general[i][4])),2));
+        gama2=Math.exp(OBJETO.alpha21V[1]*Math.pow(((OBJETO.alpha12V[0]*T_general[i][1])/(OBJETO.alpha12V[0]*T_general[i][1]+OBJETO.alpha21V[1]*T_general[i][4])),2));
+        xa = T_general[OBJETO.n][0] * 0.2; //^TEMPERATURA BAJA
+        xb = T_general[0][0] * 1.8; //^TEMPERATURA ALTA
+        tSup = xa / xb / 2;
+        T_general[i][7] = 0;
+        while (Math.abs(T_general[i][7] - 1) > 0.001) {
+          tSup = (xa + xb) / 2; //Temperatura de suposicion del sisteme en °C
+          T_general[i][2] = Math.pow(
+            10,
+            OBJETO.c_antonie1[0] -
+              OBJETO.c_antonie1[1] / (OBJETO.c_antonie1[2] + tSup)
+          ); //Presiones de saturación especie 1
+          T_general[i][5] = Math.pow(
+            10,
+            OBJETO.c_antonie2[0] -
+              OBJETO.c_antonie2[1] / (OBJETO.c_antonie2[2] + tSup)
+          ); //*Presiones de saturación especie 2
+          T_general[i][3] = (gama1 * T_general[i][1] * T_general[i][2]) / p; //*Calculo de y1
+          T_general[i][6] = (gama2 * T_general[i][4] * T_general[i][5]) / p; //*Calculo de y2
+          T_general[i][7] = T_general[i][3] + T_general[i][6];
+          if (T_general[i][7] > 1) {
+            xb = tSup;
+          } else {
+            xa = tSup;
+          }
+        }
+        T_general[i][0] = tSup;
+      }
+      OBJETO.respuesta = nic(T_general);     
     }
   }
   return OBJETO;
