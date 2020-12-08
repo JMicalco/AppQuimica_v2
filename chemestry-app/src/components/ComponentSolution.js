@@ -3,9 +3,9 @@ import obj from "../clases/metodos";
 
 const handleChange = (event) => {
   if(event.target.value === "Solucion Ideal"){
-    console.log(obj.orquestador(0,"","","","","",0));
+    obj.orquestador(0,"","","","","",0);
   }else{
-    console.log(obj.orquestador(1,"","","","","",1));
+    obj.orquestador(1,"","","","","",1);
   }
 }
 

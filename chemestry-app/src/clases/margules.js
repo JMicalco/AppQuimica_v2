@@ -2,7 +2,7 @@ const margules = {
   acetonacloroformo: [-0.8404, -0.561],
   acetonametanol: [0.6184, 0.5788],
   acetonaagua: [2.04, 1.5461],
-  tetracloruroDeCarbonobenceno: [0.0948, 0.0922],
+  tetrabenceno: [0.0948, 0.0922],
   cloroformometanol: [0.832, 1.7365],
   etanolbenceno: [1.8362, 1.4717],
   etanolagua: [1.6022, 0.7947],

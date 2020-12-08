@@ -4,11 +4,11 @@ import obj from "../clases/metodos";
 const handleChange = (event) => {
   //!checar esto falta que exista cambios
   if (event.target.value === "Margules") {
-    console.log(obj.orquestador(1, "", "", "", "", "", 1));
+    obj.orquestador(1, "", "", "", "", "", 1);
   } else if (event.target.value === "Wilson") {
-    console.log(obj.orquestador(1, "", "", "", "", "", 2));
-  } else if (event.target.value === "Margules") {
-    // VanLaar
+    obj.orquestador(1, "", "", "", "", "", 2);
+  } else if (event.target.value === "van Laar") {
+    obj.orquestador(1, "", "", "", "", "", 3);
   }
 };
 

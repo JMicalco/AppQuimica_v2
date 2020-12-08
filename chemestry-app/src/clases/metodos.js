@@ -137,7 +137,6 @@ function sistemaReal(nombreMetodo) {
     getTipo: getTipo,
   };
   var T_general = t_general(OBJETO.x1, OBJETO.x2, OBJETO.n);
-  console.log(OBJETO);
   if (nombreConst === "Presion") {
     t = nombreGrado;
     peb1 = Math.pow(
@@ -188,7 +187,6 @@ function sistemaReal(nombreMetodo) {
       OBJETO.respuesta = nic(T_general);
     }
     if (met === 2) {
-      console.log("calculo wilson");
       ge_sol1 = OBJETO.wilson[4];
       ge_sol2 = OBJETO.wilson[5];
 
@@ -287,7 +285,6 @@ function sistemaReal(nombreMetodo) {
       OBJETO.c_antonie2[1] / (OBJETO.c_antonie2[0] - Math.log10(p)) -
       OBJETO.c_antonie2[2];
     if (met === 1) {
-      console.log("HEYYYYYYY" + OBJETO.hey);
       for (let i = 0; i <= OBJETO.n; i++) {
         //^ PARA QUE LA TEMPERATURA SE AJUSTE
         gama1 = Math.exp(
@@ -328,10 +325,8 @@ function sistemaReal(nombreMetodo) {
         T_general[i][0] = tSup;
       }
       OBJETO.respuesta = nic(T_general);
-      //console.log(JSON.stringify(T_general));
     }
     if (met === 2) {
-      console.log("HEYYYYYYY" + OBJETO.hey);
       ge_sol1 = OBJETO.wilson[4];
       ge_sol2 = OBJETO.wilson[5];
 
@@ -469,20 +464,16 @@ function sitemaIdeal() {
       10,
       OBJETO.c_antonie1[0] - OBJETO.c_antonie1[1] / (OBJETO.c_antonie1[2] + t)
     );
-    //console.log("peb1 = " + peb1);
     //^ PRESION DE LA ESPECIE 2
     peb2 = Math.pow(
       10,
       OBJETO.c_antonie2[0] - OBJETO.c_antonie2[1] / (OBJETO.c_antonie2[2] + t)
     );
-    //console.log("peb2 = " + peb2);
+
     for (let j = 0; j <= OBJETO.n; j++) {
       xa = peb1 * 0.2;
-      //console.log("xa = " + xa);
       xb = peb2 * 1.8;
-      //console.log("xb = " + xb);
       psup = (xa + xb) / 2;
-      //console.log("psup = " + psup);
       T_general[j][7] = 0;
       while (Math.abs(T_general[j][7] - 1) > 0.001) {
         psup = (xa + xb) / 2;
@@ -496,19 +487,15 @@ function sitemaIdeal() {
         }
       }
       T_general[j][0] = psup;
-      //console.log(T_general[j][0]);
       T_general[j][2] =
         OBJETO.c_antonie1[1] /
           (OBJETO.c_antonie1[0] - Math.log(T_general[j][0])) -
         OBJETO.c_antonie1[2];
-      //console.log(T_general[j][2]);
       T_general[j][5] =
         OBJETO.c_antonie2[1] /
           (OBJETO.c_antonie2[0] - Math.log(T_general[j][0])) -
         OBJETO.c_antonie2[2];
-      //console.log(T_general[j][5]);
     }
-    //console.log(JSON.stringify(T_general));
   } else if (nombreConst === "Temperatura") {
     //& SISTEMA IDEAL TEMPERATURA CONSTANTE
     p = nombreGrado;
@@ -547,7 +534,6 @@ function sitemaIdeal() {
       }
       T_general[i][0] = tSup;
     }
-    //console.log(JSON.stringify(T_general));
   }
 
   T_general[0][3] = 0;

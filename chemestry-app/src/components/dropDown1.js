@@ -26,64 +26,64 @@ export default function SimpleSelect(props) {
     var x = event.target.value;
     switch (x) {
       case 1:
-        console.log(obj.orquestador(10,"acetona","cloroformo","","","",10)); 
+        (obj.orquestador(10,"acetona","cloroformo","","","",10)); 
         break;
       case 2:
-        console.log(obj.orquestador(10,"acetona","metanol","","","",10));
+        (obj.orquestador(10,"acetona","metanol","","","",10));
         break;
       case 3:
-        console.log(obj.orquestador(10,"acetona","agua","","","",10));
+        (obj.orquestador(10,"acetona","agua","","","",10));
         break;
       case 4:
-        console.log(obj.orquestador(10,"tetracloruroDeCarbono","benceno","","","",10));
+        (obj.orquestador(10,"tetra","benceno","","","",10));
         break;
       case 5:
-        console.log(obj.orquestador(10,"cloroformo","metanol","","","",10));
+        (obj.orquestador(10,"cloroformo","metanol","","","",10));
         break;
       case 6:
-        console.log(obj.orquestador(10,"etanol","benceno","","","",10));
+        (obj.orquestador(10,"etanol","benceno","","","",10));
         break;
       case 7:
-        console.log(obj.orquestador(10,"etanol","agua","","","",10));
+        (obj.orquestador(10,"etanol","agua","","","",10));
         break;
       case 8:
-        console.log(obj.orquestador(10,"acetatoDeEtilo","etanol","","","",10));
+        (obj.orquestador(10,"acetatoDeEtilo","etanol","","","",10));
         break;
       case 9:
-        console.log(obj.orquestador(10,"nHexano","etanol","","","",10));
+        (obj.orquestador(10,"nHexano","etanol","","","",10));
         break;
       case 10:
-        console.log(obj.orquestador(10,"metanol","benceno","","","",10));
+        (obj.orquestador(10,"metanol","benceno","","","",10));
         break;
       case 11:
-      console.log(obj.orquestador(10,"metanol","acetatoDeEtilo","","","",10));
+        (obj.orquestador(10,"metanol","acetatoDeEtilo","","","",10));
       break;
       case 12:
-        console.log(obj.orquestador(10,"metanol","agua","","","",10));
+        (obj.orquestador(10,"metanol","agua","","","",10));
         break;
       case 13:
-        console.log(obj.orquestador(10,"acetatoDeMetilo","metanol","","","",10));
+        (obj.orquestador(10,"acetatoDeMetilo","metanol","","","",10));
         break;
       case 14:
-        console.log(obj.orquestador(10,"propanol1","agua","","","",10));
+        (obj.orquestador(10,"propanol1","agua","","","",10));
         break;
       case 15:
-        console.log(obj.orquestador(10,"propanol2","agua","","","",10));
+        (obj.orquestador(10,"propanol2","agua","","","",10));
         break;
       case 16:
-        console.log(obj.orquestador(10,"tetraHidrofurano","agua","","","",10));
+        (obj.orquestador(10,"tetraHidrofurano","agua","","","",10));
         break;
       case 17:
-        console.log(obj.orquestador(10,"agua","acidoAcetico","","","",10));
+        (obj.orquestador(10,"agua","acidoAcetico","","","",10));
         break;
       case 18:
-        console.log(obj.orquestador(10,"agua","butanol1","","","",10));
+        (obj.orquestador(10,"agua","butanol1","","","",10));
         break;
       case 19:
-        console.log(obj.orquestador(10,"agua","acidoFormico","","","",10));
+        (obj.orquestador(10,"agua","acidoFormico","","","",10));
         break;
       default:
-        console.log(obj.orquestador(10,"","","","","",10));
+        (obj.orquestador(10,"","","","","",10));
         break;
     }
   };

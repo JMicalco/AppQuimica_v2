@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         <p>Javier González</p>
         <p>Nicole Carrillo</p>
-        <p>Adolfo</p>
+        <p>Adolfo Micalco</p>
       </div>
       <div className="icon-f">
         <FaFlask color="#cccbcb" size={30} />
