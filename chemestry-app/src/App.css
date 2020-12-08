@@ -198,6 +198,8 @@ label {
   margin-top: 10rem;
   margin-bottom: 3rem;
   justify-content: space-between;
+  background-color: #a56cc113;
+  padding: 2rem;
 }
 
 .footer > div {
@@ -229,4 +231,8 @@ label {
   .footer p {
     padding: 1rem;
   }
+}
+
+.MuiTableCell-root {
+  font-size: 1.5rem !important;
 }
