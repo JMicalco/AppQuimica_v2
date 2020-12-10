@@ -45,8 +45,14 @@ class App extends Component {
     cont2++;
 
     if (yVal != contadornic) {
-      dps.push({ x: xVal, y: yVal });
-      dps2.push({ x: yVal2, y: yVal });
+      dps.push({
+        x: parseFloat(xVal.toFixed(2)),
+        y: parseFloat(yVal.toFixed(2)),
+      });
+      dps2.push({
+        x: parseFloat(yVal2.toFixed(2)),
+        y: parseFloat(yVal.toFixed(2)),
+      });
 
       i++;
 
@@ -87,12 +93,12 @@ class App extends Component {
     if (event.target.value === "Temperatura") {
       this.setState({
         name: "Presión",
-        nameG: "Temperatura",
+        nameG: "Temperatura C°",
       });
     } else {
       this.setState({
         name: "Temperatura",
-        nameG: "Presion",
+        nameG: "Presion mmHg",
       });
     }
   };
@@ -112,7 +118,11 @@ class App extends Component {
       zoomType: "xy",
 
       title: {
-        text: "Gráfica",
+        // text: "Equilibrio Líquido-Vapor",
+        text:
+          this.state.name === "Presión"
+            ? "Equilibrio Líquido-Vapor a Presión Constante"
+            : "Equilibrio Líquido-Vapor a Temperatura Constante",
       },
       axisX: {
         title: "Fracciones Molares",
@@ -124,14 +134,14 @@ class App extends Component {
         {
           type: "line",
           showInLegend: true,
-          legendText: "Gaseosa",
+          legendText: "Vapor",
           dataPoints: dps,
         },
         {
           type: "line",
           dataPoints: dps2,
           showInLegend: true,
-          legendText: "Liquida",
+          legendText: "Líquido",
         },
       ],
     };

@@ -123,8 +123,8 @@ function sistemaReal(nombreMetodo) {
     aplha21: OBJETOAlphaMargules[nombreSis1 + nombreSis2],
     c_antonie2: OBJETOConstantesAntoine[nombreSis2],
     wilson: OBJETOAlphaWilson[nombreSis1 + nombreSis2],
-    alpha12V:OBJETOAlphaVanLaar[nombreSis1+nombreSis2],
-    alpha21V:OBJETOAlphaVanLaar[nombreSis1+nombreSis2],
+    alpha12V: OBJETOAlphaVanLaar[nombreSis1 + nombreSis2],
+    alpha21V: OBJETOAlphaVanLaar[nombreSis1 + nombreSis2],
     // vanLaar: OBJETOAlphaVanLaar[nombreSis1 + nombreSis2],
     x1: x1(11),
     x2: x2(11),
@@ -245,10 +245,26 @@ function sistemaReal(nombreMetodo) {
           OBJETO.c_antonie2[2];
       }
       OBJETO.respuesta = nic(T_general);
-    } else if(met===3){
+    } else if (met === 3) {
       for (let j = 0; j <= OBJETO.n; j++) {
-        gama1=Math.exp(OBJETO.alpha12V[0]*Math.pow(((OBJETO.alpha21V[1]*T_general[j][4])/(OBJETO.alpha12V[0]*T_general[j][1]+OBJETO.alpha21V[1]*T_general[j][4])),2));
-        gama2=Math.exp(OBJETO.alpha21V[1]*Math.pow(((OBJETO.alpha12V[0]*T_general[j][1])/(OBJETO.alpha12V[0]*T_general[j][1]+OBJETO.alpha21V[1]*T_general[j][4])),2)); 
+        gama1 = Math.exp(
+          OBJETO.alpha12V[0] *
+            Math.pow(
+              (OBJETO.alpha21V[1] * T_general[j][4]) /
+                (OBJETO.alpha12V[0] * T_general[j][1] +
+                  OBJETO.alpha21V[1] * T_general[j][4]),
+              2
+            )
+        );
+        gama2 = Math.exp(
+          OBJETO.alpha21V[1] *
+            Math.pow(
+              (OBJETO.alpha12V[0] * T_general[j][1]) /
+                (OBJETO.alpha12V[0] * T_general[j][1] +
+                  OBJETO.alpha21V[1] * T_general[j][4]),
+              2
+            )
+        );
         xa = peb1 * 0.2;
         xb = peb2 * 1.8;
         psup = (xa + xb) / 2;
@@ -272,7 +288,7 @@ function sistemaReal(nombreMetodo) {
         T_general[j][5] =
           OBJETO.c_antonie2[1] /
             (OBJETO.c_antonie2[0] - Math.log(T_general[j][0])) -
-          OBJETO.c_antonie2[2];        
+          OBJETO.c_antonie2[2];
       }
       OBJETO.respuesta = nic(T_general);
     }
@@ -392,11 +408,27 @@ function sistemaReal(nombreMetodo) {
         T_general[j][0] = tSup;
       }
       OBJETO.respuesta = nic(T_general);
-    } else if(met===3){
+    } else if (met === 3) {
       for (let i = 0; i <= OBJETO.n; i++) {
         //^ PARA QUE LA TEMPERATURA SE AJUSTE
-        gama1=Math.exp(OBJETO.alpha12V[0]*Math.pow(((OBJETO.alpha21V[1]*T_general[i][4])/(OBJETO.alpha12V[0]*T_general[i][1]+OBJETO.alpha21V[1]*T_general[i][4])),2));
-        gama2=Math.exp(OBJETO.alpha21V[1]*Math.pow(((OBJETO.alpha12V[0]*T_general[i][1])/(OBJETO.alpha12V[0]*T_general[i][1]+OBJETO.alpha21V[1]*T_general[i][4])),2));
+        gama1 = Math.exp(
+          OBJETO.alpha12V[0] *
+            Math.pow(
+              (OBJETO.alpha21V[1] * T_general[i][4]) /
+                (OBJETO.alpha12V[0] * T_general[i][1] +
+                  OBJETO.alpha21V[1] * T_general[i][4]),
+              2
+            )
+        );
+        gama2 = Math.exp(
+          OBJETO.alpha21V[1] *
+            Math.pow(
+              (OBJETO.alpha12V[0] * T_general[i][1]) /
+                (OBJETO.alpha12V[0] * T_general[i][1] +
+                  OBJETO.alpha21V[1] * T_general[i][4]),
+              2
+            )
+        );
         xa = T_general[OBJETO.n][0] * 0.2; //^TEMPERATURA BAJA
         xb = T_general[0][0] * 1.8; //^TEMPERATURA ALTA
         tSup = xa / xb / 2;
@@ -424,7 +456,7 @@ function sistemaReal(nombreMetodo) {
         }
         T_general[i][0] = tSup;
       }
-      OBJETO.respuesta = nic(T_general);     
+      OBJETO.respuesta = nic(T_general);
     }
   }
   return OBJETO;
@@ -606,7 +638,7 @@ function nic(T_general) {
       x2: parseFloat(T_general[10][1]),
     },
     {
-      x: T_general[11][0],
+      x: parseFloat(T_general[11][0].toFixed(2)),
       y: T_general[11][3],
       x2: parseFloat(T_general[11][1]),
     },
@@ -616,7 +648,15 @@ function nic(T_general) {
       x2: 10000,
     },
   ];
-  return respuesta;
+
+  var result = respuesta.map((n) => ({
+    x: parseFloat(n.x.toFixed(2)),
+    y: parseFloat(n.y.toFixed(2)),
+    x2: parseFloat(n.x2.toFixed(2)),
+  }));
+
+  console.log(result);
+  return result;
 }
 
 function x1(n) {

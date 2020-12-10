@@ -74,10 +74,41 @@ export default function SimpleModal(props) {
     setOpen(false);
   };
 
+  const exportToExcel = () => {
+    let downloadLink;
+    const dataType = "application/vnd.ms-excel";
+    const tableSelect = document.getElementById(props.nameG);
+    const tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
+    // Specify file name
+    const filename = "modalFG.xls";
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if (navigator.msSaveOrOpenBlob) {
+      const blob = new Blob(["\ufeff", tableHTML], {
+        type: dataType,
+      });
+      navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+      // Create a link to the file
+      downloadLink.href = "data:" + dataType + ", " + tableHTML;
+
+      // Setting the file name
+      downloadLink.download = filename;
+
+      //triggering the function
+      downloadLink.click();
+    }
+  };
+
   const body = (
     <Paper className={classes.paper}>
       <TableContainer>
-        <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} id={props.nameG}>
           <TableHead>
             <TableRow>
               <TableCell>{props.nameG}</TableCell>
@@ -88,14 +119,17 @@ export default function SimpleModal(props) {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {parseFloat(row.name).toFixed(4)}
                 </TableCell>
-                <TableCell align="center">{row.fracciones}</TableCell>
+                <TableCell align="center">
+                  {parseFloat(row.fracciones).toFixed(2)}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      <button onClick={exportToExcel}>Exportar tabla</button>
     </Paper>
   );
 

@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
 
-
 var variable, constante;
 var valor = 21;
 
@@ -34,17 +33,13 @@ const useStyles = makeStyles({
 
 function valuetext(value) {
   if (value !== valor) {
-    console.log(obj.orquestador(10, "", "", variable, constante, value,10));
+    console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
     valor = value;
   }
   return `${value}°C`;
 }
 
 const marks = [
-  {
-    value: 0,
-    label: "0°C",
-  },
   {
     value: 10,
     label: "10°C",
@@ -88,10 +83,6 @@ const marks = [
 ];
 
 const marksP = [
-  {
-    value: 0,
-    label: "0 mmHg",
-  },
   {
     value: 100,
     label: "100 mmHg",
