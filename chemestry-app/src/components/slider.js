@@ -142,7 +142,7 @@ export default function VerticalSlider(props) {
             orientation="vertical"
             getAriaValueText={valuetext}
             valueLabelDisplay="on"
-            defaultValue={20}
+            defaultValue={60}
             aria-labelledby="vertical-slider"
             marks={marks}
             min={10}
