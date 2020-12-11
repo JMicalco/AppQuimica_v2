@@ -17,7 +17,7 @@ function createData(name, fracciones) {
   return { name, fracciones };
 }
 
-const rows = [
+var rows = [
   createData(arreglo[0].x, arreglo[0].x2),
   createData(arreglo[1].x, arreglo[1].x2),
   createData(arreglo[2].x, arreglo[2].x2),
@@ -71,6 +71,19 @@ export default function SimpleModal(props) {
 
   const handleOpen = () => {
     arreglo = obj.getnic();
+    rows = [
+      createData(arreglo[0].x, arreglo[0].x2),
+      createData(arreglo[1].x, arreglo[1].x2),
+      createData(arreglo[2].x, arreglo[2].x2),
+      createData(arreglo[3].x, arreglo[3].x2),
+      createData(arreglo[4].x, arreglo[4].x2),
+      createData(arreglo[5].x, arreglo[5].x2),
+      createData(arreglo[6].x, arreglo[6].x2),
+      createData(arreglo[7].x, arreglo[7].x2),
+      createData(arreglo[8].x, arreglo[8].x2),
+      createData(arreglo[9].x, arreglo[9].x2),
+      createData(arreglo[10].x, arreglo[10].x2),
+    ];
     setOpen(true);
   };
 
@@ -84,10 +97,8 @@ export default function SimpleModal(props) {
     const tableSelect = document.getElementById(props.nameG);
     const tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
 
-    // Specify file name
     const filename = "modalFL.xls";
 
-    // Create download link element
     downloadLink = document.createElement("a");
 
     document.body.appendChild(downloadLink);
@@ -98,13 +109,8 @@ export default function SimpleModal(props) {
       });
       navigator.msSaveOrOpenBlob(blob, filename);
     } else {
-      // Create a link to the file
       downloadLink.href = "data:" + dataType + ", " + tableHTML;
-
-      // Setting the file name
       downloadLink.download = filename;
-
-      //triggering the function
       downloadLink.click();
     }
   };
@@ -115,18 +121,18 @@ export default function SimpleModal(props) {
         <Table className={classes.table} id={props.nameG}>
           <TableHead>
             <TableRow>
-              <TableCell>{props.nameG}</TableCell>
               <TableCell align="center">Fracciones</TableCell>
+              <TableCell align="center">{props.nameG}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {parseFloat(row.name).toFixed(4)}
-                </TableCell>
-                <TableCell align="center">
+                <TableCell align="center" component="th" scope="row">
                   {parseFloat(row.fracciones).toFixed(2)}
+                </TableCell>
+                <TableCell align="center" align="center">
+                  {parseFloat(row.name).toFixed(4)}
                 </TableCell>
               </TableRow>
             ))}

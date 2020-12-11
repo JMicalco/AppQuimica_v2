@@ -655,7 +655,6 @@ function nic(T_general) {
     x2: parseFloat(n.x2.toFixed(2)),
   }));
 
-  console.log(result);
   return result;
 }
 
