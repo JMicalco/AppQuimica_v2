@@ -160,6 +160,7 @@ class App extends Component {
             <div className="cnic">
               <div className="seven">
                 <DropDown1 onChange={this.onChange} />
+                <Azeotrope/>
               </div>
             </div>
           </div>
