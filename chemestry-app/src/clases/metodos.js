@@ -135,6 +135,8 @@ function sistemaReal(nombreMetodo) {
     getnic: getnic,
     cambio: nombreCambio,
     getTipo: getTipo,
+    getSys1: getSys1,
+    getSys2: getSys2,
   };
   var T_general = t_general(OBJETO.x1, OBJETO.x2, OBJETO.n);
   if (nombreConst === "Presion") {
@@ -483,6 +485,8 @@ function sitemaIdeal() {
     getnic: getnic,
     cambio: nombreCambio,
     getTipo: getTipo,
+    getSys1: getSys1,
+    getSys2: getSys2,
   };
 
   var T_general = t_general(OBJETO.x1, OBJETO.x2, OBJETO.n);
@@ -583,6 +587,14 @@ function getnic() {
 
 function getTipo() {
   return tipoS;
+}
+
+function getSys1(){
+  return nombreSis1;
+}
+
+function getSys2(){
+  return nombreSis2;
 }
 
 function nic(T_general) {

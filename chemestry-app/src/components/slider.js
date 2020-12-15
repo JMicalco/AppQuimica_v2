@@ -4,8 +4,9 @@ import obj from "../clases/metodos";
 import PropTypes from "prop-types";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
+import Warning from "./alert";
 
-var variable, constante;
+var variable, constante, alerta=false;
 var valor = 21;
 
 function ValueLabelComponent(props) {
@@ -36,6 +37,13 @@ function valuetext(value) {
     console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
     valor = value;
   }
+  //let temp=obj.getSys1;
+  if (obj.getSys1()==="metanol" || obj.getSys2()==="metanol"){
+    alerta=true;
+  } else {
+    alerta=false;
+  }
+  console.log(alerta);
   return `${value}°C`;
 }
 
