@@ -4,7 +4,8 @@ import obj from "../clases/metodos";
 import PropTypes from "prop-types";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
-import Warning from "./alert";
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 
 var variable, constante, alerta=false;
 var valor = 21;
@@ -32,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
+/*function valuetext(value) {
   if (value !== valor) {
     console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
     valor = value;
@@ -45,7 +46,7 @@ function valuetext(value) {
   }
   console.log(alerta);
   return `${value}°C`;
-}
+}*/
 
 const marks = [
   {
@@ -134,7 +135,38 @@ const marksP = [
 ];
 
 export default function VerticalSlider(props) {
+
+  function valuetext(value) {
+    if (value !== valor) {
+      console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
+      valor = value;
+    }
+    //let temp=obj.getSys1;
+    /*if (obj.getSys1()==="metanol" || obj.getSys2()==="metanol"){
+      alerta=true;
+      if(value>30 
+        //handleClick();
+    } else {
+      alerta=false;
+    }
+    console.log(alerta);*/
+    return `${value}°C`;
+  }
+
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   variable = props.name;
   if (variable === "Temperatura") {
     constante = "Presion";
@@ -150,7 +182,7 @@ export default function VerticalSlider(props) {
             orientation="vertical"
             getAriaValueText={valuetext}
             valueLabelDisplay="on"
-            defaultValue={60}
+            defaultValue={100}
             aria-labelledby="vertical-slider"
             marks={marks}
             min={10}
@@ -169,10 +201,15 @@ export default function VerticalSlider(props) {
             min={100}
             max={1000}
             marks={marksP}
-            onChange={props.onChange}
+            onChange={props.onChange} 
           />
         ) : null}
       </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal:'left'}}>
+        <Alert onClose={handleClose} severity="warning">
+          Te estas acercando a un error - Cuidado!
+        </Alert>
+      </Snackbar>
     </React.Fragment>
   );
 }

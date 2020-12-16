@@ -5,6 +5,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import obj from "../clases/metodos";
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
+
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -15,11 +18,31 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
 
 export default function SimpleSelect(props) {
   const classes = useStyles();
   const [componente, setComponent] = React.useState("0");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
 
   const handleChange = (event) => {
     setComponent(event.target.value);
@@ -30,6 +53,7 @@ export default function SimpleSelect(props) {
         break;
       case 2:
         obj.orquestador(10,"acetona","metanol","","","",10);
+        handleClick();
         break;
       case 3:
         obj.orquestador(10,"acetona","agua060","","","",10);
@@ -129,6 +153,11 @@ export default function SimpleSelect(props) {
           <MenuItem value={19}>Agua - Ácido fórmico</MenuItem>
         </Select>
       </FormControl>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning">
+          Te estas acercando a un error - Cuidado!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
