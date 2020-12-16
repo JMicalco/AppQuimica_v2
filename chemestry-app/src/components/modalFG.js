@@ -117,7 +117,7 @@ export default function SimpleModal(props) {
         <Table className={classes.table} id={props.nameG}>
           <TableHead>
             <TableRow>
-            <TableCell align="center">Fracciones</TableCell>
+              <TableCell align="center">Fracciones</TableCell>
               <TableCell align="center">{props.nameG}</TableCell>
             </TableRow>
           </TableHead>
@@ -135,7 +135,9 @@ export default function SimpleModal(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <button onClick={exportToExcel}>Exportar tabla</button>
+      <button className="btn-table" onClick={exportToExcel}>
+        Exportar tabla
+      </button>
     </Paper>
   );
 
