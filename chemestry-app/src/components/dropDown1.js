@@ -8,6 +8,7 @@ import obj from "../clases/metodos";
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
+let mensaje;
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -53,6 +54,7 @@ export default function SimpleSelect(props) {
         break;
       case 2:
         obj.orquestador(10,"acetona","metanol","","","",10);
+        mensaje="NOTA: No bajar de 28°C en Temperatura Constante";
         handleClick();
         break;
       case 3:
@@ -63,6 +65,8 @@ export default function SimpleSelect(props) {
         break;
       case 5:
         obj.orquestador(10,"cloroformo","metanol","","","",10);
+        mensaje="NOTA: No bajar de 31°C en Temperatura Constante";
+        handleClick();
         break;
       case 6:
         obj.orquestador(10,"etanol","benceno","","","",10);
@@ -78,6 +82,8 @@ export default function SimpleSelect(props) {
         break;
       case 10:
         obj.orquestador(10,"metanol","benceno","","","",10);
+        mensaje="NOTA: No subir de 10°C en Temperatura Constante";
+        handleClick();
         break;
       case 11:
         obj.orquestador(10,"metanol","acetatodetilo","","","",10);
@@ -155,7 +161,7 @@ export default function SimpleSelect(props) {
       </FormControl>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal:'right'}}>
         <Alert onClose={handleClose} severity="info">
-          NOTA: No bajar de 20°C en Temperatura Constante
+          {mensaje}
         </Alert>
       </Snackbar>
     </div>

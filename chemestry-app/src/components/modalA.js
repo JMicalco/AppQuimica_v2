@@ -9,7 +9,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import obj from "../clases/metodos";
+import { create, all } from 'mathjs'
 
+const config = { }
+const math = create(all, config)
 var arreglo;
 let a = [];
 var cordenadas = "";
@@ -147,6 +150,7 @@ export default function SimpleModal(props) {
     }
   };
 
+
   const getIntersect = (
     arreglo,
     arreglo2,
@@ -179,6 +183,7 @@ export default function SimpleModal(props) {
     //console.log("---------------");
   };
 
+
   const printList = (x, y, prevX, prevY) => {
     if (x < a.length) {
       let temp1, temp2;
@@ -209,7 +214,7 @@ export default function SimpleModal(props) {
           arreglo[x].y,
           arreglo[x].x,
           arreglo[x + 1].y,
-          arreglo[x + 1].x
+          arreglo[x + 1].x,
         );
         if (
           arreglo[y].x2.toFixed(2) == arreglo[x].y.toFixed(2) &&
