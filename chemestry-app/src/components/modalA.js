@@ -9,10 +9,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import obj from "../clases/metodos";
-import { create, all } from 'mathjs'
+import { create, all } from "mathjs";
 
-const config = { }
-const math = create(all, config)
+const config = {};
+const math = create(all, config);
 var arreglo;
 let a = [];
 var cordenadas = "";
@@ -76,7 +76,7 @@ export default function SimpleModal(props) {
       (arreglo4 - arreglo2) * (arreglo5 - arreglo3) -
       (arreglo3 - arreglo) * (arreglo6 - arreglo4);
 
-    if (val == 0) return 0; // colinear
+    if (val === 0) return 0; // colinear
 
     return val > 0 ? 1 : 2; // clock or counterclock wise
   };
@@ -135,7 +135,7 @@ export default function SimpleModal(props) {
     // console.log(arreglo8);
 
     //console.log("---------------------------");
-    if (o1 != o2 && o3 != o4) {
+    if (o1 !== o2 && o3 !== o4) {
       getIntersect(
         arreglo,
         arreglo2,
@@ -149,7 +149,6 @@ export default function SimpleModal(props) {
       existencia = "Si";
     }
   };
-
 
   const getIntersect = (
     arreglo,
@@ -183,7 +182,6 @@ export default function SimpleModal(props) {
     //console.log("---------------");
   };
 
-
   const printList = (x, y, prevX, prevY) => {
     if (x < a.length) {
       let temp1, temp2;
@@ -214,11 +212,11 @@ export default function SimpleModal(props) {
           arreglo[x].y,
           arreglo[x].x,
           arreglo[x + 1].y,
-          arreglo[x + 1].x,
+          arreglo[x + 1].x
         );
         if (
-          arreglo[y].x2.toFixed(2) == arreglo[x].y.toFixed(2) &&
-          arreglo[y].x.toFixed(2) == arreglo[x].x.toFixed(2)
+          arreglo[y].x2.toFixed(2) === arreglo[x].y.toFixed(2) &&
+          arreglo[y].x.toFixed(2) === arreglo[x].x.toFixed(2)
         ) {
           console.log("iguales");
           //cordenadas+=" ( "+arreglo[y].x2.toFixed(2) + " , "+ Math.ceil(arreglo[y].x) +" ) "+ "        ";

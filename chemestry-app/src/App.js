@@ -44,7 +44,7 @@ class App extends Component {
 
     cont2++;
 
-    if (yVal != contadornic) {
+    if (yVal !== contadornic) {
       dps.push({
         x: parseFloat(xVal.toFixed(2)),
         y: parseFloat(yVal.toFixed(2)),
@@ -160,7 +160,7 @@ class App extends Component {
             <div className="cnic">
               <div className="seven">
                 <DropDown1 onChange={this.onChange} />
-                <Azeotrope/>
+                <Azeotrope />
               </div>
             </div>
           </div>

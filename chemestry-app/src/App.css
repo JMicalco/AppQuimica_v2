@@ -143,6 +143,10 @@ label {
   color: white;
 }
 
+.btn-slider {
+  margin-top: 4rem;
+}
+
 .one .container input[type="text"] {
   margin-top: 2rem;
 }

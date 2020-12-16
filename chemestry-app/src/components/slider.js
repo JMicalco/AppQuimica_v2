@@ -4,8 +4,8 @@ import obj from "../clases/metodos";
 import PropTypes from "prop-types";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '@material-ui/lab/Alert';
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
 
 var variable, constante;
 var valor = 21;
@@ -135,33 +135,28 @@ const marksP = [
 ];
 
 export default function VerticalSlider(props) {
-  
-  function defaultValueText(){
+  function defaultValueText() {
     let x;
-    if (obj.getSys1()==="metanol" || obj.getSys2()==="benceno"){
-      x=5
+    if (obj.getSys1() === "metanol" || obj.getSys2() === "benceno") {
+      x = 5;
     } else {
-      x=60;
+      x = 60;
     }
     return x;
   }
-  
+
   function valuetext(value) {
     if (value !== valor) {
       console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
       valor = value;
     }
     //let temp=obj.getSys1;
-    if (obj.getSys1()==="acetona" || obj.getSys2()==="metanol"){
-      if(value>30 && value<36) 
-        handleClickWarning();
-      else if(value===29)
-        handleClickError();
-    } else if (obj.getSys1()==="cloroformo" || obj.getSys2()==="metanol"){
-      if(value>32 && value<40) 
-        handleClickWarning();
-      else if(value===31)
-        handleClickError();
+    if (obj.getSys1() === "acetona" || obj.getSys2() === "metanol") {
+      if (value > 30 && value < 36) handleClickWarning();
+      else if (value === 29) handleClickError();
+    } else if (obj.getSys1() === "cloroformo" || obj.getSys2() === "metanol") {
+      if (value > 32 && value < 40) handleClickWarning();
+      else if (value === 31) handleClickError();
     }
     return `${value}°C`;
   }
@@ -179,7 +174,7 @@ export default function VerticalSlider(props) {
   };
 
   const handleCloseWarning = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
@@ -187,7 +182,7 @@ export default function VerticalSlider(props) {
   };
 
   const handleCloseError = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
@@ -227,20 +222,29 @@ export default function VerticalSlider(props) {
             min={100}
             max={1000}
             marks={marksP}
-            onChange={props.onChange} 
+            onChange={props.onChange}
           />
         ) : null}
       </div>
-      <Snackbar open={openWarning} autoHideDuration={150} onClose={handleCloseWarning} anchorOrigin={{vertical:'top', horizontal:'left'}}>
-        <Alert  severity="warning">
+      <Snackbar
+        open={openWarning}
+        autoHideDuration={150}
+        onClose={handleCloseWarning}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert severity="warning">
           Te estas acercando a un error - Cuidado!
         </Alert>
       </Snackbar>
-      <Snackbar open={openError} autoHideDuration={150} onClose={handleCloseError} anchorOrigin={{vertical:'top', horizontal:'left'}}>
-        <Alert  severity="error">
-          Error
-        </Alert>
+      <Snackbar
+        open={openError}
+        autoHideDuration={150}
+        onClose={handleCloseError}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert severity="error">Error</Alert>
       </Snackbar>
+      <button className="btn-table btn-slider">Calcular</button>
     </React.Fragment>
   );
 }
