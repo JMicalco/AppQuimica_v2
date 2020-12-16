@@ -56,7 +56,7 @@ export default function SimpleSelect(props) {
         handleClick();
         break;
       case 3:
-        obj.orquestador(10,"acetona","agua060","","","",10);
+        obj.orquestador(10,"acetona","agua60150","","","",10);
         break;
       case 4:
         obj.orquestador(10,"tetracloruroDeCarbono","benceno","","","",10);
@@ -101,7 +101,7 @@ export default function SimpleSelect(props) {
         obj.orquestador(10,"agua060","acidoAcetico","","","",10);
         break;
       case 18:
-        obj.orquestador(10,"agua060","butanol1","","","",10);
+        obj.orquestador(10,"agua060","acetona","","","",10);
         break;
       case 19:
         obj.orquestador(10,"agua060","acidoFormico","","","",10);
@@ -153,9 +153,9 @@ export default function SimpleSelect(props) {
           <MenuItem value={19}>Agua - Ácido fórmico</MenuItem>
         </Select>
       </FormControl>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="warning">
-          Te estas acercando a un error - Cuidado!
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal:'right'}}>
+        <Alert onClose={handleClose} severity="info">
+          NOTA: No bajar de 20°C en Temperatura Constante
         </Alert>
       </Snackbar>
     </div>

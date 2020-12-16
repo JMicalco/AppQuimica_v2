@@ -7,7 +7,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
-var variable, constante, alerta=false;
+var variable, constante;
 var valor = 21;
 
 function ValueLabelComponent(props) {
@@ -135,37 +135,63 @@ const marksP = [
 ];
 
 export default function VerticalSlider(props) {
-
+  
+  function defaultValueText(){
+    let x;
+    if (obj.getSys1()==="metanol" || obj.getSys2()==="benceno"){
+      x=5
+    } else {
+      x=60;
+    }
+    return x;
+  }
+  
   function valuetext(value) {
     if (value !== valor) {
       console.log(obj.orquestador(10, "", "", variable, constante, value, 10));
       valor = value;
     }
     //let temp=obj.getSys1;
-    /*if (obj.getSys1()==="metanol" || obj.getSys2()==="metanol"){
-      alerta=true;
-      if(value>30 
-        //handleClick();
-    } else {
-      alerta=false;
+    if (obj.getSys1()==="acetona" || obj.getSys2()==="metanol"){
+      if(value>30 && value<36) 
+        handleClickWarning();
+      else if(value===29)
+        handleClickError();
+    } else if (obj.getSys1()==="cloroformo" || obj.getSys2()==="metanol"){
+      if(value>32 && value<40) 
+        handleClickWarning();
+      else if(value===31)
+        handleClickError();
     }
-    console.log(alerta);*/
     return `${value}°C`;
   }
 
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [openWarning, setOpenWarning] = React.useState(false);
+  const [openError, setOpenError] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
+  const handleClickWarning = () => {
+    setOpenWarning(true);
   };
 
-  const handleClose = (event, reason) => {
+  const handleClickError = () => {
+    setOpenError(true);
+  };
+
+  const handleCloseWarning = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    setOpen(false);
+    setOpenWarning(false);
+  };
+
+  const handleCloseError = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenError(false);
   };
   variable = props.name;
   if (variable === "Temperatura") {
@@ -182,10 +208,10 @@ export default function VerticalSlider(props) {
             orientation="vertical"
             getAriaValueText={valuetext}
             valueLabelDisplay="on"
-            defaultValue={100}
+            defaultValue={defaultValueText}
             aria-labelledby="vertical-slider"
             marks={marks}
-            min={10}
+            min={5}
             max={100}
             onChange={props.onChange}
           />
@@ -205,9 +231,14 @@ export default function VerticalSlider(props) {
           />
         ) : null}
       </div>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical:'top', horizontal:'left'}}>
-        <Alert onClose={handleClose} severity="warning">
+      <Snackbar open={openWarning} autoHideDuration={150} onClose={handleCloseWarning} anchorOrigin={{vertical:'top', horizontal:'left'}}>
+        <Alert  severity="warning">
           Te estas acercando a un error - Cuidado!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={openError} autoHideDuration={150} onClose={handleCloseError} anchorOrigin={{vertical:'top', horizontal:'left'}}>
+        <Alert  severity="error">
+          Error
         </Alert>
       </Snackbar>
     </React.Fragment>
