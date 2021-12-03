@@ -33,7 +33,9 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]()
+<p align="center">
+<img src="Images/SS1.png" width="1000">
+</p>
 
 Simulator of different entropy equations using graphs and interactions
 
@@ -83,13 +85,17 @@ npm start
 1. Click on the top panel either Temperature or Pressure
 2. On the left panel move the bar accordingly to the value you want
 
-![Selection](Images/selection.gif)
+<p align="center">
+<img src="Images/selection.gif">
+</p>
 
 ### Select type of reaction
 
 1. Click on the component on the middle of the web app
 
-![Reaction](Images/reaction.gif)
+<p align="center">
+<img src="Images/reaction.gif">
+</p>
 
 ### Select type of solution
 
@@ -97,28 +103,36 @@ npm start
 2. Click on any of the two available solutions (Real, Ideal)
    > Note: if ideal solution is chosen then the method component will not be available
 
-![Method](Images/solution.gif)
+<p align="center">
+<img src="Images/solution.gif">
+</p>
 
 ### Select Method
 
 1. Look for the "Metodo" Component
 2. Click on any of the three available methods (Nargules, Wilson, Van Laar)
 
-![Method](Images/method.gif)
+<p align="center">
+<img src="Images/method.gif">
+</p>
 
 ### Verify if the reaction is an Azeotrope
 
 1. Look for the "Azeótropo" Component
 2. Click on the Azeótropo Button
 
-![Method](Images/azeotropo.gif)
+<p align="center">
+<img src="Images/azeotropo.gif">
+</p>
 
 ### Get the molar fraction values
 
 1. Look for the "Fracciones molares" Component
 2. Click on either "Fase Líquida" or "Fase Gaseosa" Button
 
-![Method](Images/molar.gif)
+<p align="center">
+<img src="Images/molar.gif">
+</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -143,4 +157,3 @@ Project Link: [https://github.com/JMicalco/AppQuímica_v2](https://github.com/JM
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: www.linkedin.com/in/josé-adolfo-sánchez-micalco-b14864140
 [linkedin-url2]: https://www.linkedin.com/in/nickycarrillo
-[product-screenshot]: Images/SS1.png
