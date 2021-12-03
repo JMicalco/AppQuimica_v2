@@ -21,8 +21,8 @@
     <a href="https://github.com/JMicalco/AppQuimica_v2"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/JMicalco/AppQuimica_v2">View Demo</a>
-    ·
+    <!-- <a href="https://github.com/JMicalco/AppQuimica_v2">View Demo</a>
+    · -->
     <a href="https://github.com/JMicalco/AppQuimica_v2/issues">Report Bug</a>
     ·
     <a href="https://github.com/JMicalco/AppQuimica_v2/issues">Request Feature</a>
